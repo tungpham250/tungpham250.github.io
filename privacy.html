@@ -23,7 +23,8 @@
     <p>CrewReel là công cụ cá nhân giúp chủ sở hữu tự động đăng video ngắn do chính mình sản xuất lên <b>kênh YouTube và Trang Facebook của chính chủ sở hữu</b>. Công cụ không cung cấp dịch vụ cho người dùng khác.</p>
     <p><b>Dữ liệu truy cập:</b> qua YouTube API Services, CrewReel chỉ dùng quyền tải video lên (youtube.upload) và đọc số liệu cơ bản của video đã đăng (youtube.readonly: lượt xem, lượt thích, bình luận) trên kênh của chủ sở hữu.</p>
     <p><b>Lưu trữ:</b> token truy cập được lưu mã hóa trong kho bí mật (GitHub Secrets) của chủ sở hữu. Số liệu video lưu trong kho mã nguồn riêng tư của chủ sở hữu. CrewReel không bán, chia sẻ hay chuyển dữ liệu cho bên thứ ba.</p>
-    <p><b>Thu hồi quyền:</b> có thể thu hồi bất cứ lúc nào tại <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.</p>
+    <p><b>Xóa dữ liệu:</b> số liệu video được tự động xóa sau tối đa 30 ngày. Khi thu hồi quyền, mọi token và dữ liệu lấy từ YouTube API sẽ bị xóa trong vòng 7 ngày. Bạn có thể yêu cầu xóa bất cứ lúc nào qua email phtung250@gmail.com.</p>
+    <p><b>Thu hồi quyền:</b> có thể thu hồi bất cứ lúc nào tại <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a> (trang cài đặt bảo mật của Google).</p>
     <p>CrewReel sử dụng YouTube API Services. Khi dùng, bạn đồng ý với <a href="https://www.youtube.com/t/terms">Điều khoản dịch vụ của YouTube</a> và <a href="https://policies.google.com/privacy">Chính sách quyền riêng tư của Google</a>.</p>
   </section>
 
@@ -32,8 +33,14 @@
     <p>CrewReel is a personal tool that lets its owner automatically publish short videos the owner produces to <b>the owner's own YouTube channels and Facebook Pages</b>. It does not provide services to other users.</p>
     <p><b>Data accessed:</b> through YouTube API Services, CrewReel only uses permission to upload videos (youtube.upload) and to read basic statistics of published videos (youtube.readonly: views, likes, comments) on the owner's channels.</p>
     <p><b>Storage:</b> access tokens are stored encrypted in the owner's secret store (GitHub Secrets). Video statistics are stored in the owner's private code repository. CrewReel does not sell, share or transfer any data to third parties.</p>
-    <p><b>Revoking access:</b> access can be revoked at any time at <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.</p>
+    <p><b>Data deletion:</b> stored video statistics are automatically deleted after at most 30 days. When access is revoked, all tokens and data obtained through the YouTube API Services are deleted within 7 days. Deletion can be requested at any time by email to phtung250@gmail.com.</p>
+    <p><b>Revoking access:</b> access can be revoked at any time via the Google security settings page at <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.</p>
     <p>CrewReel uses YouTube API Services. By using it you agree to the <a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a> and the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</p>
+  </section>
+  <section lang="en">
+    <h2>YouTube API Services</h2>
+    <p>CrewReel uses <b>YouTube API Services</b> (YouTube Data API v3) to upload the owner's videos (videos.insert) and to read statistics of the owner's videos (videos.list). By using CrewReel you agree to be bound by the <a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a>. Information is handled in accordance with the <a href="https://policies.google.com/privacy">Google Privacy Policy</a> (http://www.google.com/policies/privacy).</p>
+    <p>CrewReel does not use cookies or tracking technologies, and does not collect information from devices.</p>
   </section>
   <p class="muted"><a href="./">← Trang chủ / Home</a></p>
 </main>
