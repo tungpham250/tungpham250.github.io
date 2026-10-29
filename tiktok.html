@@ -38,7 +38,7 @@
   const state = Math.random().toString(36).slice(2);
   const u = new URL('https://www.tiktok.com/v2/auth/authorize/');
   u.search = new URLSearchParams({client_key: key, response_type: 'code', scope: 'user.info.basic,video.upload',
-    redirect_uri: 'https://tungpham250.github.io/tiktok-callback.html', state}).toString();
+    redirect_uri: 'https://tungpham250.github.io/tiktok-callback.html', state, disable_auto_auth: '1'}).toString();
   document.getElementById('connect').href = u.toString();
 </script>
 </body>
