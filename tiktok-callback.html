@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Kết nối TikTok · CrewReel</title>
+<style>
+  :root{--bg:#f6f7fb;--card:#fff;--ink:#1b2430;--muted:#5a6472;--line:#e3e7ee;--accent:#1f3a5f;--ok:#2e8b57;--err:#c0392b}
+  @media (prefers-color-scheme:dark){:root{--bg:#12161d;--card:#1b212b;--ink:#e8ecf2;--muted:#a3adbb;--line:#2a3240;--accent:#8fb6e8}}
+  *{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+  main{max-width:640px;margin:0 auto;padding:32px 16px 48px}h1{font-size:1.4rem;margin:0 0 6px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-top:16px}
+  code{display:block;word-break:break-all;background:var(--bg);border:1px dashed var(--line);border-radius:10px;padding:12px;font-size:.95rem}
+  button{margin-top:10px;background:var(--accent);color:#fff;border:0;border-radius:10px;padding:10px 16px;font-size:1rem;cursor:pointer}
+  .muted{color:var(--muted);font-size:.9rem}.ok{color:var(--ok)}.err{color:var(--err)}
+  ol{padding-left:20px}a{color:var(--accent)}
+</style>
+</head>
+<body>
+<main>
+  <h1>Kết nối TikTok với CrewReel</h1>
+  <p class="muted">Trang này chỉ hiển thị mã đăng nhập ngay trên trình duyệt của bạn, không gửi mã đi đâu. · This page only displays the authorization code locally in your browser.</p>
+  <div class="card" id="box">Đang đọc mã…</div>
+  <div class="card">
+    <b>Bước tiếp theo (làm trong vòng vài phút, mã hết hạn nhanh):</b>
+    <ol>
+      <li>Bấm <b>Sao chép mã</b>.</li>
+      <li>Mở <a href="https://github.com/tungpham250/CrewReel/actions/workflows/ket_noi_tiktok.yml">GitHub → Actions → Kết nối TikTok</a> → <b>Run workflow</b> → dán mã vào ô <i>code</i>, chọn kênh (<b>vi</b> hoặc <b>en</b>) → <b>Run workflow</b>.</li>
+      <li>Khoảng 1 phút sau, Telegram báo "Đã kết nối TikTok".</li>
+    </ol>
+    <p class="muted">Hoặc dán mã vào cuộc trò chuyện với Claude để Claude chạy giúp.</p>
+  </div>
+  <p class="muted"><a href="./">← Trang chủ</a> · <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms</a></p>
+</main>
+<script>
+  const q = new URLSearchParams(location.search);
+  const box = document.getElementById('box');
+  const code = q.get('code'), err = q.get('error'), desc = q.get('error_description');
+  if (code) {
+    box.innerHTML = '<div class="ok"><b>✓ Đăng nhập TikTok thành công.</b></div><p>Mã đăng nhập của bạn:</p><code id="c"></code><button id="b">Sao chép mã</button>';
+    document.getElementById('c').textContent = code;
+    document.getElementById('b').onclick = async () => {
+      try { await navigator.clipboard.writeText(code); document.getElementById('b').textContent = 'Đã sao chép ✓'; }
+      catch (e) { document.getElementById('b').textContent = 'Hãy bôi đen mã và Ctrl+C'; }
+    };
+  } else if (err) {
+    box.innerHTML = '<div class="err"><b>✗ TikTok báo lỗi:</b></div><code id="e"></code>';
+    document.getElementById('e').textContent = err + (desc ? ' — ' + desc : '');
+  } else {
+    box.textContent = 'Không có mã. Hãy mở link đăng nhập TikTok mà Claude gửi cho bạn.';
+  }
+</script>
+</body>
+</html>
